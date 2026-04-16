@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- LOADING SCREEN -->
+    <div id = "loadingScreen">
+      <p>Loading Sayari Hub....</p>
+   </div>
+    
+    <header>
+        <h1>Sayari Hub</h1>
+    </header>
+
+    <!-- NAVIGATION -->
+     <nav>
+
+        <button class = "navBtn" id = "homeBtn">Home</button>
+        <button class = "navBtn" id = "galleryBtn">Gallery</button>
+        <button class = "navBtn" id = "quizBtn">Quiz</button>
+        <button class = "navBtn" id = "factsBtn">Facts</button>
+        <button class = "navBtn" id = "learnBtn">Learn</button>
+        <button class = "navBtn" id = "buddies">Learning Buddies</button>
+        <button class = "navBtn" id = "profileBtn">Profile</button>
+
+     </nav>
+     <!-- MAIN SECTION -->
+      <main>
+
+         <!-- AUTHENTICATION SECTION(SIGNIN $ SIGNUP) -->
+          <section id = "authSection">
+
+            <h2>Log in/Create Account</h2>
+            <input type = "text" id = "username" placeholder = "Username">
+            <input type = "email" id = "email" placeholder = "Email">
+            <input type = "password" id = "password" placeholder = "Enter your Password">
+            <button id = "SignupBtn">Sign Up</button>
+            <hr>
+            <input type = "email" id = "loginEmail" placeholder = "Enter your Email Address">
+            <input type = "password" id = "loginPassword" placeholder = "Enter your Password">
+            <button id = "loginBtn">Login</button>
+
+          </section>
+
+        <!-- APOD SECTION -->
+         <section id = "gallery">
+            <h2> Daily Snap Shot</h2>
+            <p id = "apodimage" alt = "Astronomy Picture of the Day"></p>
+            <p id = "apodExplanation">🌌 Let’s see what space is showing off today.</p>
+         </section>
+      </main>
+
+      <!-- QUIZ SECTION -->
+       <section id = "quizSection">
+        <h3>Prove it!</h3>
+        <h4 id = "difficulty"></h4>
+        <p id = "question"></p>
+        <div id = "options"></div>
+        <p id = "result"></p>
+        
+       </section>
+
+      <!-- LEARN SECTION -->
+       <section id = "learnSection">
+         <h2> Let's learn  the Universe</h2>
+         <p>Explore lessons in Atronomy and Physics</p>
+
+         <!-- LESSON CARDS -->
+          <div class="lessons-container">
+          <div class = "lessons">
+            <h3>Big Bang Theory</h3>
+            <p>Learn about the Big Bang Theory</p>
+          </div>
+
+          <div class = "lessons">
+            <h3>Solar System</h3>
+            <p>Learn about the Solar System</p>
+          </div>
+
+          <div class = "lessons">
+            <h3>Moon Mysteries</h3>
+            <p> Why the Moon changes shape</p>
+         </div>
+        
+         <div class = "lessons">
+            <h3>Stars</h3>
+            <p>Life cycle of Stars</p>
+         </div>
+
+         <div class = "lessons">
+            <h3>Galaxy</h3>
+            <p> Types of Galaxies</p>
+         </div>
+         <div class = "lessons">
+            <h3>Black Holes</h3>
+            <p> What is a Blackhole</p>
+         </div>
+
+         <div class = "lessons">
+            <h3>Time Dilation</h3>
+            <p> Why Gravity makes Time move slower</p>
+         </div>
+         </div>
+       </section>
+
+
+      
+<script src="script.js"></script>
+</body>
+</html>
