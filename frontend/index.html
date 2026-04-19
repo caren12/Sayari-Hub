@@ -1,114 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayari Hub</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sayari Hub</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            space1: '#020617',
+            space2: '#071A3A',
+            space3: '#0B2A5A'
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-   <!-- LOADING SCREEN -->
-    <div id = "loadingScreen">
-      <p>Loading Sayari Hub....</p>
-   </div>
-    
-    <header>
-        <h1>Sayari Hub</h1>
-    </header>
 
-    <!-- NAVIGATION -->
-     <nav>
+<body class="relative min-h-screen text-white bg-gradient-to-b from-space1 via-space2 to-space3">
 
-        <button class = "navBtn" id = "homeBtn">Home</button>
-        <button class = "navBtn" id = "galleryBtn">Gallery</button>
-        <button class = "navBtn" id = "quizBtn">Quiz</button>
-        <button class = "navBtn" id = "factsBtn">Facts</button>
-        <button class = "navBtn" id = "learnBtn">Learn</button>
-        <button class = "navBtn" id = "buddies">Learning Buddies</button>
-        <button class = "navBtn" id = "profileBtn">Profile</button>
+<!-- BACKGROUND -->
+<div class="fixed inset-0 z-0">
+  <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3"
+       class="w-full h-full object-cover opacity-20"/>
+</div>
 
-     </nav>
-     <!-- MAIN SECTION -->
-      <main>
+<div class="relative z-10">
 
-         <!-- AUTHENTICATION SECTION(SIGNIN $ SIGNUP) -->
-          <section id = "authSection">
+  <!-- AUTH -->
+  <div class="fixed top-4 right-4 z-50">
+    <button onclick="document.getElementById('authBox').classList.toggle('hidden')"
+      class="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center">
+      👤
+    </button>
 
-            <h2>Log in/Create Account</h2>
-            <input type = "text" id = "username" placeholder = "Username">
-            <input type = "email" id = "email" placeholder = "Email">
-            <input type = "password" id = "password" placeholder = "Enter your Password">
-            <button id = "SignupBtn">Sign Up</button>
-            <hr>
-            <input type = "email" id = "loginEmail" placeholder = "Enter your Email Address">
-            <input type = "password" id = "loginPassword" placeholder = "Enter your Password">
-            <button id = "loginBtn">Login</button>
+    <div id="authBox"
+      class="hidden mt-2 w-72 bg-white/10 backdrop-blur-xl border border-blue-900/40 rounded-xl p-4">
 
-          </section>
+      <h2 class="text-blue-200 font-bold mb-3">Account</h2>
 
-        <!-- APOD SECTION -->
-         <section id = "gallery">
-            <h2> Daily Snap Shot</h2>
-            <p id = "apodimage" alt = "Astronomy Picture of the Day"></p>
-            <p id = "apodExplanation">🌌 Let’s see what space is showing off today.</p>
-         </section>
-      </main>
+      <input id="username" class="w-full p-2 mb-2 bg-black/40 rounded" placeholder="Username">
+      <input id="email" class="w-full p-2 mb-2 bg-black/40 rounded" placeholder="Email">
+      <input id="password" class="w-full p-2 mb-2 bg-black/40 rounded" placeholder="Password">
 
-      <!-- QUIZ SECTION -->
-       <section id = "quizSection">
-        <h3>Prove it!</h3>
-        <h4 id = "difficulty"></h4>
-        <p id = "question"></p>
-        <div id = "options"></div>
-        <p id = "result"></p>
-        
-       </section>
+      <button onclick="signup()" class="w-full bg-gray-800 py-2 rounded mb-2">Sign Up</button>
 
-      <!-- LEARN SECTION -->
-       <section id = "learnSection">
-         <h2> Let's learn  the Universe</h2>
-         <p>Explore lessons in Atronomy and Physics</p>
+      <hr class="border-gray-600 my-2">
 
-         <!-- LESSON CARDS -->
-          <div class="lessons-container">
-          <div class = "lessons">
-            <h3>Big Bang Theory</h3>
-            <p>Learn about the Big Bang Theory</p>
-          </div>
+      <input id="loginEmail" class="w-full p-2 mb-2 bg-black/40 rounded" placeholder="Login Email">
+      <input id="loginPassword" class="w-full p-2 mb-2 bg-black/40 rounded" placeholder="Login Password">
 
-          <div class = "lessons">
-            <h3>Solar System</h3>
-            <p>Learn about the Solar System</p>
-          </div>
+      <button onclick="login()" class="w-full bg-gray-800 py-2 rounded">Login</button>
+    </div>
+  </div>
 
-          <div class = "lessons">
-            <h3>Moon Mysteries</h3>
-            <p> Why the Moon changes shape</p>
-         </div>
-        
-         <div class = "lessons">
-            <h3>Stars</h3>
-            <p>Life cycle of Stars</p>
-         </div>
+  <!-- HEADER -->
+  <header class="text-center py-6 border-b border-blue-900/40">
+    <h1 class="text-3xl font-bold text-blue-200">🌌 Sayari Hub</h1>
+  </header>
 
-         <div class = "lessons">
-            <h3>Galaxy</h3>
-            <p> Types of Galaxies</p>
-         </div>
-         <div class = "lessons">
-            <h3>Black Holes</h3>
-            <p> What is a Blackhole</p>
-         </div>
+  <!-- NAV (FIXED TOP POSITION LOGIC) -->
+  <nav class="flex flex-wrap justify-center gap-3 p-4 bg-black/30 border-b border-blue-900/30">
 
-         <div class = "lessons">
-            <h3>Time Dilation</h3>
-            <p> Why Gravity makes Time move slower</p>
-         </div>
-         </div>
-       </section>
+    <button id="homeBtn" class="px-4 py-2 bg-gray-800 rounded-lg">Home</button>
+    <button id="galleryBtn" class="px-4 py-2 bg-gray-800 rounded-lg">Gallery</button>
+    <button id="factsBtn" class="px-4 py-2 bg-gray-800 rounded-lg">Facts</button>
+    <button id="buddies" class="px-4 py-2 bg-gray-800 rounded-lg">Learning Buddies</button>
+    <button id="startQuizBtn" class="px-4 py-2 bg-gray-700 rounded-lg">Start Quiz</button>
 
+  </nav>
 
-      
+  <!-- MAIN -->
+  <main class="p-4 space-y-8 max-w-5xl mx-auto">
+
+    <!-- HOME -->
+    <section id="homeSection">
+
+      <div class="text-center mt-6">
+        <h2 class="text-2xl font-bold text-blue-200 mb-4">
+          🚀 NASA Image of the Day
+        </h2>
+
+        <img id="homeApodImage"
+          class="w-full max-h-[400px] object-cover rounded-lg mb-4 border border-blue-900/40"/>
+
+        <p id="homeApodExplanation" class="text-sm text-gray-300"></p>
+
+        <button id="refreshApodBtn"
+          class="mt-4 px-4 py-2 bg-gray-800 rounded-lg">
+          Refresh Image 🔁
+        </button>
+      </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallerySection" style="display:none;">
+       <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    </section>
+
+    <!-- FACTS -->
+    <section id="factsSection" style="display:none;">
+      <div class="flex flex-col items-center mt-10">
+
+        <h2 class="text-3xl mb-6">🌌 Did You Know?</h2>
+
+        <div id="factCard" class="bg-black/50 p-6 rounded-xl text-center max-w-xl">
+          <p id="factText">Click below to load a fact 🚀</p>
+        </div>
+
+        <button id="nextFactBtn"
+          class="mt-6 px-6 py-2 bg-indigo-600 rounded-xl">
+          Next Fact 🔁
+        </button>
+
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quizSection" style="display:none;">
+      <p id="question"></p>
+      <div id="options"></div>
+      <p id="result"></p>
+      <p id="timer"></p>
+    </section>
+
+    <!-- BUDDIES -->
+    <section id="buddiesSection" style="display:none;">
+      <h2>👥 Learning Buddies</h2>
+
+      <input id="buddyName" placeholder="Name">
+      <input id="buddyInterest" placeholder="Interest">
+
+      <button onclick="addBuddy()">Join Network</button>
+
+      <div id="buddiesList"></div>
+    </section>
+
+  </main>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
